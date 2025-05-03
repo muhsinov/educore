@@ -27,6 +27,8 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+AUTH_USER_MODEL = 'user.User'
+
 
 # Application definition
 
@@ -81,10 +83,14 @@ WSGI_APPLICATION = "educore.wsgi.application"
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
 DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
-    }
+ 'default': {
+   'ENGINE': 'django.db.backends.postgresql',
+   'NAME': 'modernedusystem',
+   'USER': 'postgres',
+   'PASSWORD': '',
+   'HOST': 'localhost',
+   'PORT': '5432',
+  }
 }
 
 
