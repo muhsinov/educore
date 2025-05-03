@@ -87,7 +87,7 @@ DATABASES = {
    'ENGINE': 'django.db.backends.postgresql',
    'NAME': 'modernedusystem',
    'USER': 'postgres',
-   'PASSWORD': '',
+   'PASSWORD': '12345',
    'HOST': 'localhost',
    'PORT': '5432',
   }
