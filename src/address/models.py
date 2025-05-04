@@ -5,3 +5,4 @@ class Address(models.Model):
     destrict = models.CharField(max_length=64)
     region = models.CharField(max_length=64)
     
+    
