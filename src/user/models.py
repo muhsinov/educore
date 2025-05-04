@@ -23,7 +23,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     first_name = models.CharField(max_length=100)
     last_name = models.CharField(max_length=100)
     birth_date = models.DateField(null=True, blank=True)
-    address = models.ForeignKey(Address, on_delete=models.SET_NULL, null=True)
+    address = models.ForeignKey(Address, on_delete=models.SET_NULL, null=True, related_name="users")
     joined_at = models.DateField(auto_now_add=True)
 
     is_active = models.BooleanField(default=True)
@@ -39,8 +39,8 @@ class User(AbstractBaseUser, PermissionsMixin):
 
 
 class Student(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    user = models.OneToOneField(User, on_delete=models.CASCADE, related_name="student")
 
 class Teacher(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    user = models.OneToOneField(User, on_delete=models.CASCADE, related_name="teacher")
     salary = models.DecimalField(max_digits=10, decimal_places=2)
