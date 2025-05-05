@@ -23,3 +23,5 @@ class StudentCourse(models.Model):
 
     def __str__(self):
         return f'{self.group_id} - {self.student_id}'
+
+# for test changes
