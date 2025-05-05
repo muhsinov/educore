@@ -6,4 +6,10 @@ class Course(models.Model):
     cost = models.IntegerField(null=False, blank=False)
     duration = models.IntegerField(null=False, blank=False)
     
-    
+
+    def __str__(self):
+        return self.name
+
+
+class StudentCourse(models.Model):
+    pass
