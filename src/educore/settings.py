@@ -89,9 +89,9 @@ WSGI_APPLICATION = "educore.wsgi.application"
 DATABASES = {
  'default': {
    'ENGINE': 'django.db.backends.postgresql',
-   'NAME': 'mes_db',
-   'USER': 'abdulaziz',
-   'PASSWORD': 'dsn48pwh2ficvj8',
+   'NAME': 'modernedusystem',
+   'USER': 'postgres',
+   'PASSWORD': '12345',
    'HOST': 'localhost',
    'PORT': '5432',
   }
