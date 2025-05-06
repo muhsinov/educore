@@ -7,8 +7,8 @@ class Homework(models.Model):
     name = models.CharField(max_length=64)
     description = models.TextField()
     lesson = models.ForeignKey(Lesson, on_delete=models.CASCADE)
-    deadline = models.DateField()
-    created_at = models.DateField(auto_now_add=True)
+    deadline = models.DateTimeField()
+    created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return self.name
