@@ -9,4 +9,6 @@ class Group(models.Model):
     room = models.CharField(max_length=64)
     started_at = models.DateField()
     end_at = models.DateField()
-
+    
+    def __str__(self):
+        return f"{self.name} ({self.course.name})"
