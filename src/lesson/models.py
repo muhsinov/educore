@@ -13,8 +13,8 @@ class Lesson(models.Model):
     teacher = models.ForeignKey(Teacher,on_delete=models.CASCADE)
     room = models.CharField(max_length=64,null=False,blank=False)
     file = models.FileField(upload_to='lessons/')
-    start_time = models.DateField(null=False,blank=False)
-    end_time = models.DateField(null=False,blank=False)
+    start_time = models.TimeField(null=False,blank=False)
+    end_time = models.TimeField(null=False,blank=False)
 
 
     def __str__(self):
@@ -25,7 +25,7 @@ class Lesson(models.Model):
 
 class Grade(models.Model):
     grade_types = [
-        (0,"not rejected"),
+        (0,"not graded"),
         (2,"rejected"),
         (3,'pass'),
         (4,'merit'),
