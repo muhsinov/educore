@@ -10,7 +10,7 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.CreateModel(
-            name="Address",
+            name="Course",
             fields=[
                 (
                     "id",
@@ -21,9 +21,10 @@ class Migration(migrations.Migration):
                         verbose_name="ID",
                     ),
                 ),
-                ("street", models.CharField(max_length=64)),
-                ("destrict", models.CharField(max_length=64)),
-                ("region", models.CharField(max_length=64)),
+                ("name", models.CharField(max_length=64)),
+                ("description", models.TextField()),
+                ("cost", models.IntegerField()),
+                ("duration", models.IntegerField()),
             ],
         ),
     ]
