@@ -8,8 +8,10 @@ class Payment(models.Model):
         (1, "Card"),
         (3,"Electron pay")
     )
-    student_course = models.ForeignKey(StudentGroup, on_delete=models.CASCADE)
-    amount = models.DecimalField(max_digits=10, decimal_places=2,null=False,blank=False)
+
+    student_group = models.ForeignKey(StudentGroup, on_delete=models.CASCADE)
+    amount = models.IntegerField(max_digits=10, null=False,blank=False)
+
     type = models.SmallIntegerField(choices=pay_type,default=0)
     payment_date = models.DateField(auto_now_add=True)
 
