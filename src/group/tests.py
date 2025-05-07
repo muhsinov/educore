@@ -1,8 +1,10 @@
+from datetime import date
+
 import pytest
-from django.utils import timezone
+
 from course.models import Course
 from group.models import Group
-from datetime import date
+
 
 @pytest.mark.django_db
 def test_create_group():
