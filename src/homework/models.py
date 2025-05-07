@@ -1,38 +1,36 @@
 from django.db import models
 from lesson.models import Lesson
-from user.models import User
+from user.models import Student
 
 
 class Homework(models.Model):
-    name = models.CharField(max_length=100)
-    description = models.TextField(blank=True, null=True)
-    lesson = models.ForeignKey(Lesson, on_delete=models.CASCADE, related_name='homeworks')
-    deadline = models.DateField(auto_now_add=True)
+    name = models.CharField(max_length=64)
+    description = models.TextField()
+    lesson = models.ForeignKey(Lesson, on_delete=models.CASCADE)
+    deadline = models.DateTimeField()
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return f"{self.name} (Lesson: {self.lesson.name})" 
-    
+        return self.name
+
+
+
+
 class StudentHomework(models.Model):
-    GRADE_CHOICES = [
-        (1, '1'),
-        (2, '2'),
-        (3, '3'),
-        (4, '4'),
-        (5, '5'),
-    ]
-    
-    homework = models.ForeignKey(Homework, on_delete=models.CASCADE, related_name='student_homework')
-    student = models.ForeignKey(User, on_delete=models.CASCADE, related_name='student_homework')
+    homework = models.ForeignKey(Homework, on_delete=models.CASCADE)
+    student = models.ForeignKey(Student, on_delete=models.CASCADE)
+    text = models.TextField()
+    file = models.FileField(upload_to='homeworks/',null=False,blank=False)
+    grade = models.IntegerField(null=False,blank=False)
+    teacher_advice = models.TextField()
+    sended_at = models.DateField(auto_now_add=True)
 
-    text = models.TextField(blank=True, null=True)
-    file = models.FileField(upload_to='homeworks/', blank=True, null=True)
-
-    grade = models.IntegerField(choices=GRADE_CHOICES, blank=True, null=True)
-    teacher_advice = models.TextField(blank=True, null=True)
-    sended_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return f"{self.student.username} - {self.homework.name}"
+        return f"{self.student} - {self.homework}"
+
+
+
+
 
 
