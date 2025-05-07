@@ -5,6 +5,7 @@ from user.models import Student
 
 
 class Group(models.Model):
+    objects = None
     name = models.CharField(max_length=64)
     course = models.ForeignKey(Course, on_delete=models.CASCADE)
     room = models.CharField(max_length=64)
