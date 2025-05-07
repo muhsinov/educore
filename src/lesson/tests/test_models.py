@@ -1,7 +1,6 @@
 from django.test import TestCase
 from django.utils import timezone
 from datetime import time
-
 from group.models import Group
 from ..models import Lesson, Grade
 from course.models import Course
