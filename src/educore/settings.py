@@ -92,7 +92,6 @@ DATABASES = {
    'NAME': 'modernedusystem',
    'USER': 'postgres',
    'PASSWORD': '12345',
-
   }
 }
 

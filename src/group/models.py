@@ -10,7 +10,17 @@ class Group(models.Model):
     room = models.CharField(max_length=64)
     started_at = models.DateField()
     end_at = models.DateField()
+    
+    def __str__(self):
+        return f"{self.name} ({self.course.name})"
+    
+class StudentGroup(models.Model):
+    group_id = models.ForeignKey(Group, on_delete=models.CASCADE)
+    student_id = models.ForeignKey(Student, on_delete=models.CASCADE)
+    status = models.BooleanField(default=False)
+    joined_at = models.DateTimeField(auto_now_add=True)
 
+<<<<<<< HEAD
 class StudentGroup(models.Model):
     group_id = models.ForeignKey(Group, on_delete=models.CASCADE)
     student_id = models.ForeignKey(Student, on_delete=models.CASCADE)
@@ -20,3 +30,7 @@ class StudentGroup(models.Model):
     def __str__(self):
         return f'{self.group_id} - {self.student_id}'
 
+=======
+    def __str__(self):
+        return f'{self.group_id} - {self.student_id}'
+>>>>>>> ab393175bc4f0eeb819ce40d99175a4032ab8227
