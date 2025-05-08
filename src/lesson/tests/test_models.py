@@ -1,7 +1,6 @@
 from django.test import TestCase
 from django.utils import timezone
 from datetime import time
-
 from group.models import Group
 from ..models import Lesson, Grade
 from course.models import Course
@@ -9,6 +8,15 @@ from user.models import User, Student, Teacher
 
 class TestLessonModel(TestCase):
     def setUp(self):
+        user = User.objects.create_user(phone="998901112233", password="test123")
+        self.teacher = Teacher.objects.create(user=user, salary=100000.00)
+        
+        self.course = Course.objects.create(
+            name="Physics",
+            description="Physics course",
+            cost=50000,
+            duration=30
+        )
 
         self.group = Group.objects.create(
             name="Test Group",
@@ -22,6 +30,10 @@ class TestLessonModel(TestCase):
             description="Algebra and Geometry",
             group=self.group,
             teacher=self.teacher,
+            room="101-A",
+            file=None,
+            start_time=time(9, 0),
+            end_time=time(10, 30)
         )
 
     def test_lesson_str(self):
