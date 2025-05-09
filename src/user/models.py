@@ -19,13 +19,17 @@ class UserManager(BaseUserManager):
 
 
 class User(AbstractBaseUser, PermissionsMixin):
+    role_type = [
+        ('student','student'),
+        ('teacher','teacher')
+    ]
     phone = models.CharField(max_length=20, unique=True)
     first_name = models.CharField(max_length=100)
     last_name = models.CharField(max_length=100)
     birth_date = models.DateField(null=True, blank=True)
     address = models.ForeignKey(Address, on_delete=models.SET_NULL, null=True, related_name="users")
     joined_at = models.DateField(auto_now_add=True)
-
+    role = models.CharField(max_length=10,choices=role_type)
     is_active = models.BooleanField(default=True)
     is_staff = models.BooleanField(default=False)
 

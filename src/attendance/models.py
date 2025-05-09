@@ -7,9 +7,13 @@ from user.models import Student
 
 
 class Attendance(models.Model):
+    status_type = [
+        ('present','present'),
+        ('absent','absent')
+    ]
     lesson = models.ForeignKey(Lesson, on_delete=models.CASCADE)
     student = models.ForeignKey(Student, on_delete=models.CASCADE)
-    status = models.BooleanField(default=False)
+    status = models.CharField(max_length=10,choices=status_type,default='absent')
     time = models.DateTimeField(auto_now_add=True)
 
 
