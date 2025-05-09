@@ -29,10 +29,6 @@ class TeacherViewSet(viewsets.ModelViewSet):
     serializer_class = TeacherSerializer
     permission_classes = [IsAuthenticated, IsAdmin]
 
-class CourseViewSet(viewsets.ModelViewSet):
-    queryset = Course.objects.all()
-    serializer_class = CourseSerializer
-    permission_classes = [IsAuthenticated]
 
 class GroupViewSet(viewsets.ModelViewSet):
     queryset = Group.objects.all()
@@ -85,7 +81,7 @@ from django.urls import path, include
 from rest_framework import routers
 from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 from .views import (
-    StudentViewSet, TeacherViewSet, CourseViewSet, GroupViewSet,
+    StudentViewSet, TeacherViewSet, GroupViewSet,
     LessonViewSet, GradeViewSet, HomeworkViewSet, StudentHomeworkViewSet,
     AttendanceViewSet, PaymentViewSet, AddressViewSet, StudentCourseViewSet
 )
@@ -93,7 +89,6 @@ from .views import (
 router = routers.DefaultRouter()
 router.register(r'students', StudentViewSet)
 router.register(r'teachers', TeacherViewSet)
-router.register(r'courses', CourseViewSet)
 router.register(r'groups', GroupViewSet)
 router.register(r'lessons', LessonViewSet)
 router.register(r'grades', GradeViewSet)

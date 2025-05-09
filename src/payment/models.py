@@ -10,8 +10,7 @@ class Payment(models.Model):
     )
 
     student_group = models.ForeignKey(StudentGroup, on_delete=models.CASCADE)
-    amount = models.IntegerField(max_digits=10, null=False,blank=False)
-
+    amount = models.IntegerField(null=False, blank=False)
     type = models.SmallIntegerField(choices=pay_type,default=0)
     payment_date = models.DateField(auto_now_add=True)
 

@@ -4,7 +4,8 @@ from user.models import Teacher
 from api.user.serializers import UserSerializer
 
 class TeacherSerializer(serializers.ModelSerializer):
-    user = UserSerializer(read_only=True)
+    user = UserSerializer()
+    
     class Meta:
         model = Teacher
         fields = '__all__'

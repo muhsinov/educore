@@ -1,10 +1,14 @@
 from rest_framework import serializers
 from user.models import Student, User
-from api.user.serializers import UserSerializer
 
+class UserSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = User
+        fields = '__all__'
 
 class StudentSerializer(serializers.ModelSerializer):
-    user = UserSerializer(read_only=True)
+    user = UserSerializer()
+    
     class Meta:
         model = Student
         fields = '__all__'
