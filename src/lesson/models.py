@@ -25,19 +25,11 @@ class Lesson(models.Model):
 
 class Grade(models.Model):
     grade_types = [
-<<<<<<< HEAD
-        (0, "not graded"),
-        (2, "rejected"),
-        (3, 'pass'),
-        (4, 'merit'),
-        (5, 'distinction')
-=======
         (0,"not graded"),
         (2,"rejected"),
         (3,'pass'),
         (4,'merit'),
         (5,'distinction')
->>>>>>> ab393175bc4f0eeb819ce40d99175a4032ab8227
     ]
     lesson = models.ForeignKey(Lesson,on_delete=models.CASCADE)
     student = models.ForeignKey(Student,on_delete=models.CASCADE)

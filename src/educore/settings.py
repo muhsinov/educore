@@ -92,8 +92,14 @@ DATABASES = {
    'NAME': 'modernedusystem',
    'USER': 'postgres',
    'PASSWORD': '12345',
-  }
+   'NAME': 'mes_db',
+   'USER': 'abdulaziz',
+   'PASSWORD': 'dsn48pwh2ficvj8',
+   'HOST': 'localhost',
+   'PORT': '5432',
+ }
 }
+
 
 
 
