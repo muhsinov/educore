@@ -15,5 +15,5 @@ class Payment(models.Model):
     payment_date = models.DateField(auto_now_add=True)
 
     def __str__(self):
-        return f"{self.student_course} - {self.amount}"
+        return f"{self.student_group} - {self.amount}"
 

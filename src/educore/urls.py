@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 
+=======
+>>>>>>> a2f5bb549fe3c9f5daf0fd0aefd952abb50cd3d2
 from django.contrib import admin
 from django.urls import path, include
 
@@ -22,9 +25,13 @@ schema_view = get_schema_view(
 
 urlpatterns = [
     path("admin/", admin.site.urls),
+<<<<<<< HEAD
     path("api/", include("api.urls"), name="api"),
     
     path('swagger<format>/', schema_view.without_ui(cache_timeout=0), name='schema-json'),
     path('swagger/', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
     path('redoc/', schema_view.with_ui('redoc', cache_timeout=0), name='schema-redoc'),
+=======
+    path("api/", include("lesson.urls"), name="api"),
+>>>>>>> a2f5bb549fe3c9f5daf0fd0aefd952abb50cd3d2
 ]
