@@ -13,11 +13,11 @@ class GroupViewSet(viewsets.ModelViewSet):
         if user.is_staff:
             return Group.objects.all()
 
-        if hasattr(user, 'teacher'):
+        if user.role == 'teacher':
             return Group.objects.filter(teacher=user.teacher)
 
-        if hasattr(user, 'student'):
-            return Group.objects.filter(studentgroup__student=user.student)
+        if user.role == 'student':
+            return Group.objects.filter(studentgroup__student_id=user.student)
 
         return Group.objects.none()
 

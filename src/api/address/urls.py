@@ -1,10 +1,10 @@
-from django.urls import path
-from .views import AddressteacherApiView,AddressStudentDetail,allAddressApiview,AddressDetailAdmin
+from django.urls import path, include
+from rest_framework.routers import DefaultRouter
+from .views import AddressViewSet
+
+router = DefaultRouter()
+router.register(r'', AddressViewSet, basename='address')
 
 urlpatterns = [
-    path("student/",AddressStudentDetail.as_view(),name="student_address_id"),
-    path("teacher/",AddressteacherApiView.as_view(),name="teacher_address"),
-    path("admin/",allAddressApiview.as_view(),name="all_address"),
-    path("admin/<int:pk>/",AddressDetailAdmin.as_view(),name="address_id"),
-
+    path('', include(router.urls)),
 ]
