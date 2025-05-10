@@ -25,7 +25,7 @@ SECRET_KEY = "django-insecure-n8$p0r^iv4!kwsbg8#&3(1js@logr()uzvi+o*4wet%_y!jb7%
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 AUTH_USER_MODEL = 'user.User'
 
@@ -90,9 +90,9 @@ WSGI_APPLICATION = "educore.wsgi.application"
 DATABASES = {
  'default': {
    'ENGINE': 'django.db.backends.postgresql',
-   'NAME': 'mes_db',
-   'USER': 'abdulaziz',
-   'PASSWORD': 'dsn48pwh2ficvj8',
+   'NAME': 'mes',
+   'USER': 'postgres',
+   'PASSWORD': '',
    'HOST': 'localhost',
    'PORT': '5432',
  }
@@ -135,7 +135,9 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 
-STATIC_URL = "static/"
+
+
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
@@ -188,3 +190,20 @@ SIMPLE_JWT = {
     "SLIDING_TOKEN_OBTAIN_SERIALIZER": "rest_framework_simplejwt.serializers.TokenObtainSlidingSerializer",
     "SLIDING_TOKEN_REFRESH_SERIALIZER": "rest_framework_simplejwt.serializers.TokenRefreshSlidingSerializer",
 }
+
+
+import os
+
+# Static files (CSS, JavaScript, Images)
+STATIC_URL = '/static/'
+
+# Bunda static fayllar to‘planuvchi papka
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+# Dastur ichidagi qo‘shimcha static papkalarni aniqlaymiz
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static'),
+]
+
+# Agar `WhiteNoise` ishlatsangiz (productionda foydali)
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'

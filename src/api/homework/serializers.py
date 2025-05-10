@@ -1,9 +1,12 @@
 from rest_framework import serializers
-from homework.models import Homework
-from api.lesson.serializers import LessonSerializer
+from homework.models import Homework, StudentHomework
 
 class HomeworkSerializer(serializers.ModelSerializer):
-    lesson = LessonSerializer(read_only=True)
     class Meta:
         model = Homework
+        fields = '__all__'
+
+class StudentHomeworkSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = StudentHomework
         fields = '__all__'

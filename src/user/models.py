@@ -21,7 +21,8 @@ class UserManager(BaseUserManager):
 class User(AbstractBaseUser, PermissionsMixin):
     role_type = [
         ('student','student'),
-        ('teacher','teacher')
+        ('teacher','teacher'),
+        ('admin','admin'),
     ]
     phone = models.CharField(max_length=20, unique=True)
     first_name = models.CharField(max_length=100)
